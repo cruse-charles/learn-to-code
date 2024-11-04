@@ -6,7 +6,7 @@ import Question from './components/Question';
 import { useState } from 'react';
 
 export default function Home() {
-  const [code, setCode] = useState('// Write your code here');
+  const [code, setCode] = useState('');
   const [outputCode, setOutputCode] = useState(code)
 
   const runCode = () => {
