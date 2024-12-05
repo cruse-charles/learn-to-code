@@ -6,7 +6,7 @@ const layout = ({children}) => {
     <>
       <div>Flashcards</div>
       <div>Test your knowledge!</div>
-      <FlashCard />
+      <div>{children}</div>
     </>
   )
 }
