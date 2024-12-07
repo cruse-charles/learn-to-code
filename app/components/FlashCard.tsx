@@ -1,8 +1,13 @@
 import React from 'react'
 
-const FlashCard = () => {
+const FlashCard = ({question, answer}) => {
+  console.log('Flashcard Component, checking passed in data', question, answer)
   return (
-    <div>FlashCard</div>
+    <>
+      <div>{question}</div>
+      <div>{answer}</div>
+      <div>Hello</div>
+    </>
   )
 }
 
