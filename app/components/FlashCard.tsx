@@ -6,7 +6,6 @@ const FlashCard = ({question, answer}) => {
     <>
       <div>{question}</div>
       <div>{answer}</div>
-      <div>Hello</div>
     </>
   )
 }

@@ -1,24 +1,11 @@
+import { getFlashcards } from '@/lib/mongo/flashcards';
 import { MongoClient } from 'mongodb';
 
-export async function GET(req) {
-  const client = new MongoClient(process.env.MONGODB_URI);
-
-  try {
-    await client.connect();
-    const database = client.db('Flashcards');
-    const documents = await database.collection('Flashcards').find().toArray();
-
-    return new Response(JSON.stringify({ flashcards: documents }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } catch (error) {
-    console.error('Error fetching flashcards:', error);
-    return new Response(JSON.stringify({ error: 'Failed to fetch flashcards' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } finally {
-    await client.close();
-  }
+export async function GET() {
+  // TODO: Add error handling for MongoDB connection
+  // TODO: Add comments to explain the code
+  const flashcards = await getFlashcards();
+  return new Response(JSON.stringify({flashcards}), {
+    status: 200,
+  })
 }
