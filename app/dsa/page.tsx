@@ -8,17 +8,16 @@ export default function page() {
   return (
     // @ts-ignore
     <SplitPane
-    split="vertical" // Vertical split (left and right panes)
-    minSize={200} // Minimum size of the left pane
-    defaultSize="50%" // Default size of the left pane (percentage or pixels)
+    split="vertical"
+    minSize={200}
+    defaultSize="50%"
     className="split-pane"
   >
-    {/* Left Pane */}
-    <RightPane />
-    
-
     {/* Right Pane */}
     <LeftPane />
+
+    {/* Left Pane */}
+    <RightPane />
   </SplitPane>
   )
 }

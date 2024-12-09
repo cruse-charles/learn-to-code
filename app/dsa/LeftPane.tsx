@@ -1,15 +1,8 @@
-import React from 'react'
-import CodeMirror from '@uiw/react-codemirror'
-import { javascript } from '@codemirror/lang-javascript'
+import SubHeader from 'app/components/headers/SubHeader'
 
 function LeftPane() {
   return (
-    <>
-        <CodeMirror 
-            value='// Write your code here...'
-            extensions={[javascript()]}
-        />
-    </>
+    <SubHeader title={'Data Structures & Algorithms'} subtitle={'Learn about algorithms and data structures.'}/>
   )
 }
 

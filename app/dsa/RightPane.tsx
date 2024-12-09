@@ -1,9 +1,13 @@
-import SubHeader from 'app/components/headers/SubHeader'
-import React from 'react'
+import CodeMirror from '@uiw/react-codemirror'
+import { javascript } from '@codemirror/lang-javascript'
 
 function RightPane() {
   return (
-    <SubHeader title={'Data Structures & Algorithms'} subtitle={'Learn about algorithms and data structures.'}/>
+        <CodeMirror 
+            value='// Write your code here...'
+            extensions={[javascript()]}
+            className='cm cm-content'
+        />
   )
 }
 
