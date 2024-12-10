@@ -1,6 +1,10 @@
-import React from 'react'
+'use client'
+
 import FlashCard from '../components/flashcards/FlashCard'
 import SubHeader from 'app/components/headers/SubHeader';
+import Filter from 'app/components/flashcards/Filter';
+
+import { useState, useEffect } from 'react'
 
 interface Flashcard {
   _id: string;
@@ -9,10 +13,29 @@ interface Flashcard {
   category: string;
 }
 
-async function FlashcardPage() {
+// async function FlashcardPage() {
+function FlashcardPage() {
+
+  const [flashcards, setFlashcards] = useState<Flashcard[]>([])
+  const [selectedCategory, setSelectedCategory] = useState('All Categories')
+
   // fetch flashcards from the API
-  const response = await fetch('http://localhost:3000/api/flashcards')
-  const {flashcards}: {flashcards: Flashcard[]} = await response.json()
+  // const response = await fetch('http://localhost:3000/api/flashcards')
+  // const {flashcards}: {flashcards: Flashcard[]} = await response.json()
+
+  useEffect(() => {
+    const fetchFlashcards = async () => {
+      const response = await fetch('http://localhost:3000/api/flashcards')
+      const {flashcards}: {flashcards: Flashcard[]} = await response.json()
+      setFlashcards(flashcards)
+    }
+
+    fetchFlashcards()
+  }, [])
+
+  const categories = ['All Categories', ...new Set(flashcards.map((flashcard) => flashcard.category))]
+
+  const filteredFlashcards = selectedCategory === 'All Categories' ? flashcards : flashcards.filter((flashcard) => flashcard.category === selectedCategory)
 
   return (
     // Main container for the page
@@ -21,9 +44,10 @@ async function FlashcardPage() {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <SubHeader title={'Flashcards'} subtitle={'Test your knowledge with these interactive flashcards'}/>
+          <Filter categories={categories} selectedCategory={selectedCategory} onCategoryChange={setSelectedCategory}/>
           {/* Grid layout for flashcards */}
           <div className="grid gap-8 grid-cols-2">
-            {flashcards?.map((flashcard) => (
+            {filteredFlashcards?.map((flashcard) => (
               <FlashCard key={flashcard._id} question={flashcard.question} answer={flashcard.answer} category={flashcard.category}/>
             ))}
           </div>
