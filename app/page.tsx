@@ -1,33 +1,32 @@
 'use client'
-import React, { useRef, useState } from 'react';
-import Editor from '@monaco-editor/react';
+import CodeEditor from './components/CodeEditor';
+import CodeOutput from './components/CodeOutput';
+import Question from './components/Question';
 
-const CodeEditor = () => {
+import { useState } from 'react';
+
+export default function Home() {
   const [code, setCode] = useState('// Write your code here');
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [outputCode, setOutputCode] = useState(code)
 
   const runCode = () => {
-    if (iframeRef.current) {
-      iframeRef.current.srcdoc = code;
-    }
-  };
+    setOutputCode(code)
+  }
 
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
-      <div style={{ flex: 1 }}>
-        <Editor
-          height="100%"
-          defaultLanguage="javascript"
-          defaultValue="// Write your code here"
-          onChange={(value) => setCode(value || '')}
-        />
-        <button onClick={runCode}>Run</button>
-      </div>
-      <div style={{ flex: 1 }}>
-        <iframe ref={iframeRef} style={{ width: '100%', height: '100%' }} />
-      </div>
+    <div style={{display: 'flex', height: '100vh'}}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+
+        <Question />
+        </div>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+
+        <CodeEditor setCode={setCode} runCode={runCode}/>
+        </div>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+
+        <CodeOutput code={outputCode}/>
+        </div>
     </div>
   );
-};
-
-export default CodeEditor;
+}
