@@ -1,4 +1,4 @@
-import SubHeader from '../components/SubHeader';
+import SubHeader from '../components/headers/SubHeader';
 import ComingSoon from '../components/ComingSoon';
 
 export default function page() {

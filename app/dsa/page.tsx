@@ -1,5 +1,5 @@
 import ComingSoon from 'app/components/ComingSoon'
-import SubHeader from 'app/components/SubHeader'
+import SubHeader from 'app/components/headers/SubHeader'
 
 export default function page() {
   return (

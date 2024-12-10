@@ -15,7 +15,7 @@ export default function NavTabs() {
 
     return (
     <nav className="container border-b border-gray-200">
-      <div className="flex h-12 items-center space-x-4 text-sm font-medium">
+      <div className="flex h-12 items-center space-x-4 text-sm font-medium pl-5">
         {navItems.map((item) => (
           <Link
             key={item.href}

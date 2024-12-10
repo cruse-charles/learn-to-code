@@ -1,6 +1,6 @@
 import React from 'react'
-import FlashCard from '../components/FlashCard'
-import SubHeader from 'app/components/SubHeader';
+import FlashCard from '../components/flashcards/FlashCard'
+import SubHeader from 'app/components/headers/SubHeader';
 
 interface Flashcard {
   _id: string;
