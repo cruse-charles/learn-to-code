@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-const layout = ({children}) => {
+interface LayoutProps {
+  children: ReactNode
+}
+
+const layout = ({children} : LayoutProps) => {
   return (
     <>
-      <div>Flashcards</div>
-      <div>Test your knowledge!</div>
       <div>{children}</div>
     </>
   )

@@ -4,12 +4,12 @@ import { useState } from "react"
 
 
 interface FlashcardProps {
-  question: string
-  answer: string
-  category?: string
+  question: string;
+  answer: string;
+  category: string;
 }
 
-export default function Flashcard({ question, answer, category = "General" }: FlashcardProps) {
+export default function Flashcard({ question, answer, category }: FlashcardProps) {
   const [isFlipped, setIsFlipped] = useState(false)
 
   const handleFlip = () => {

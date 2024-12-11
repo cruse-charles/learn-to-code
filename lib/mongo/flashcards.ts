@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb';
 
 export async function getFlashcards() {
-  const client = new MongoClient(process.env.MONGODB_URI);
+  const client = new MongoClient(process.env.MONGODB_URI as string);
 
   try {
     // Connect the client to the server	(optional starting in v4.7)

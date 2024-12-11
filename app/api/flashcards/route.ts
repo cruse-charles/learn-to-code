@@ -1,5 +1,4 @@
 import { getFlashcards } from '@/lib/mongo/flashcards';
-import { MongoClient } from 'mongodb';
 
 export async function GET() {
   // TODO: Add error handling for MongoDB connection

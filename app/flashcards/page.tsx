@@ -1,9 +1,16 @@
 import React from 'react'
 import FlashCard from '../components/FlashCard'
 
+interface Flashcard {
+  _id: string;
+  question: string;
+  answer: string;
+  category: string;
+}
+
 async function FlashcardPage() {
   const response = await fetch('http://localhost:3000/api/flashcards')
-  const {flashcards} = await response.json()
+  const {flashcards}: {flashcards: Flashcard[]} = await response.json()
 
   return (
       <div className="min-h-screen bg-gradient-to-b from-slate-50 to-violet-50 dark:from-slate-950 dark:to-violet-950 py-16 px-4 sm:px-6 lg:px-8">
@@ -20,7 +27,7 @@ async function FlashcardPage() {
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
             {flashcards?.map((flashcard) => (
-              <FlashCard key={flashcard._id} question={flashcard.question} answer={flashcard.answer}/>
+              <FlashCard key={flashcard._id} question={flashcard.question} answer={flashcard.answer} category={flashcard.category}/>
             ))}
           </div>
     </div>
