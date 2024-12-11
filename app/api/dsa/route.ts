@@ -7,7 +7,6 @@ export async function GET(req: Request) {
 
     try {
         const question = await getQuestion(title as string);
-        console.log('question:', question);
 
         if (!question) {
             return NextResponse.json({ error: 'Question not found' }, { status: 404 });

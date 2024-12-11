@@ -1,26 +1,9 @@
-'use client'
-
-import SplitPane from 'react-split-pane';
-import RightPane from './RightPane';
-import LeftPane from './LeftPane';
-
 export default function page() {
-  return (
-    // @ts-ignore
-    <SplitPane
-    split="vertical"
-    minSize={200}
-    defaultSize="50%"
-    className="split-pane"
-  >
-    {/* Right Pane */}
-    <LeftPane />
 
-    {/* Left Pane */}
-    <RightPane />
-  </SplitPane>
+  // TODO: Fetch all questions from the database and display them as links.
+  return (
+    <div>
+      Data Structures & Algorithms. Learn about algorithms and data structures
+    </div>
   )
 }
-
-
-{/* <SubHeader title={'Data Structures & Algorithms'} subtitle={'Learn about algorithms and data structures.'}/> */}

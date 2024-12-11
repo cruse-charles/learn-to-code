@@ -4,7 +4,21 @@ import SplitPane from 'react-split-pane';
 import RightPane from './RightPane';
 import LeftPane from './LeftPane';
 
-export default function SplitPaneComponent({question}) {
+interface Question {
+    id: string;
+    title: string;
+    description: string;
+    examples: any;
+    constraints: string;
+    order: any;
+    starterCode: string;
+}
+
+interface SplitPaneComponentProps {
+    question: Question;
+}
+
+export default function SplitPaneComponent({question}: SplitPaneComponentProps) {
   return (
     // @ts-ignore
     <SplitPane
