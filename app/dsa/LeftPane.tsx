@@ -1,8 +1,8 @@
 import SubHeader from 'app/components/headers/SubHeader'
 
-function LeftPane() {
+function LeftPane({title}) {
   return (
-    <SubHeader title={'Data Structures & Algorithms'} subtitle={'Learn about algorithms and data structures.'}/>
+    <SubHeader title={title} subtitle={'Learn about algorithms and data structures.'}/>
   )
 }
 

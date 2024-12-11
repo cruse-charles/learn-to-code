@@ -4,7 +4,7 @@ import SplitPane from 'react-split-pane';
 import RightPane from './RightPane';
 import LeftPane from './LeftPane';
 
-export default function page() {
+export default function SplitPaneComponent({question}) {
   return (
     // @ts-ignore
     <SplitPane
@@ -14,13 +14,10 @@ export default function page() {
     className="split-pane"
   >
     {/* Right Pane */}
-    <LeftPane />
+    <LeftPane title={question.title}/>
 
     {/* Left Pane */}
     <RightPane />
   </SplitPane>
   )
 }
-
-
-{/* <SubHeader title={'Data Structures & Algorithms'} subtitle={'Learn about algorithms and data structures.'}/> */}
