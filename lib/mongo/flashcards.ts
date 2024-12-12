@@ -7,9 +7,9 @@ export async function getFlashcards() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
     
-    // Fetch documents from the 'Flashcards' collection and convert them to an array
-    const database = client.db('Flashcards');
-    const documents = await database.collection('Flashcards').find().toArray();
+    // Fetch documents from the 'learn_2_code' database, 'flashcards' collection and convert them to an array
+    const database = client.db('learn_2_code');
+    const documents = await database.collection('flashcards').find().toArray();
 
     return documents;
   } catch (error) {

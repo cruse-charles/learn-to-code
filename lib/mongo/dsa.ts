@@ -6,8 +6,8 @@ export async function getQuestion(title: string) {
     try {
         await client.connect();
 
-        const database = client.db('Flashcards');
-        const document = await database.collection('DSA-Problems').findOne({title})
+        const database = client.db('learn_2_code');
+        const document = await database.collection('dsa_problems').findOne({title})
 
         return document;
     } catch (error) {

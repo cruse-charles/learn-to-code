@@ -12,7 +12,7 @@ async function FlashcardPage() {
 
   // fetch flashcards from the API
   const response = await fetch('http://localhost:3000/api/flashcards')
-  const {flashcards}: {flashcards: Flashcard[]} = await response.json()
+  const flashcards: Flashcard[] = await response.json()
 
   // create an array of categories from the flashcards
   const categories = ['All Categories', ...new Set(flashcards.map((flashcard) => flashcard.category))]

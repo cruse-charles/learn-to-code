@@ -4,7 +4,7 @@ export async function GET() {
   try{
     // fetch flashcards from the database and return them as a JSON response
     const flashcards = await getFlashcards();
-    return new Response(JSON.stringify({flashcards}), {
+    return new Response(JSON.stringify(flashcards), {
       status: 200,
     })
   } catch (error) {
