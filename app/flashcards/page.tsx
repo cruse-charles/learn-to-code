@@ -1,5 +1,6 @@
 import React from 'react'
 import FlashCard from '../components/FlashCard'
+import Header from 'app/components/Header';
 
 interface Flashcard {
   _id: string;
@@ -19,17 +20,7 @@ async function FlashcardPage() {
         {/* Centered content container */}
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="flex justify-between items-center mb-12">
-            <div>
-              {/* Title and subtitle */}
-              <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">
-                Flashcards
-              </h1>
-              <p className="mt-3 text-lg text-slate-600">
-                Test your knowledge with these interactive flashcards
-              </p>
-            </div>
-          </div>
+          <Header title={'Flashcards'} subtitle={'Test your knowledge with these interactive flashcards'}/>
           {/* Grid layout for flashcards */}
           <div className="grid gap-8 grid-cols-2">
             {flashcards?.map((flashcard) => (
