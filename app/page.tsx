@@ -1,8 +1,3 @@
-'use client'
-import Link from 'next/link';
-
-import { useState } from 'react';
-
 export default function Home() {
   return (
     <div className='min-h-screen bg-gradient-to-b from-slate-50 to-violet-50 py-16 px-4 sm:px-6 lg:px-8'>
@@ -22,12 +17,12 @@ export default function Home() {
         <div className='bg-white rounded-lg shadow-md p-6 border border-violet-100'>
           <h2 className='text-xl font-bold text-violet-600 mb-2'>DSA</h2>
           <p className='text-xl text-slate-600 mb-8'>Practice your Data Structures and Algoritms</p>
-          <a href='/flashcards' className='text-violet-600 font-medium hover:underline'>Start Practicing →</a>
+          <a href='/dsa' className='text-violet-600 font-medium hover:underline'>Start Practicing →</a>
         </div>
         <div className='bg-white rounded-lg shadow-md p-6 border border-violet-100'>
           <h2 className='text-xl font-bold text-violet-600 mb-2'>Object Oriented Design</h2>
           <p className='text-xl text-slate-600 mb-8'>Practice your object oriented programming!</p>
-          <a href='/flashcards' className='text-violet-600 font-medium hover:underline'>Dive Deeper →</a>
+          <a href='/oop' className='text-violet-600 font-medium hover:underline'>Dive Deeper →</a>
         </div>
       </div>
     </div>
