@@ -1,4 +1,9 @@
-export default function Header({title, subtitle}) {
+interface HeaderProps {
+    title: string;
+    subtitle: string;
+}
+
+export default function Header({title, subtitle}: HeaderProps) {
   return (
     <div className="flex justify-between items-center mb-12">
     <div>
