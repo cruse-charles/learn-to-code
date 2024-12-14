@@ -8,7 +8,7 @@ export default function page() {
         {/* Header */}
         <Header title={'Data Structures & Algorithms'} subtitle={'Learn about algorithms and data structures'}/>
         {/* Content container */}
-        <ComingSoon/>
+        <ComingSoon subtitle={`I'm currently working on creating a code editing environment for practicing data structures and algorithms. Check back soon for practice problems!`}/>
     </div>
   )
 }
