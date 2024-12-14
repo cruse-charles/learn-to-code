@@ -1,20 +1,15 @@
-interface HeaderProps {
-    title: string;
-    subtitle: string;
-}
+import Link from "next/link";
 
-export default function Header({title, subtitle}: HeaderProps) {
+export default function Header() {
   return (
-    <div className="flex justify-between items-center mb-12">
-        <div>
-            {/* Title and subtitle */}
-            <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 leading-tight">
-                {title}
-            </h1>
-            <p className="mt-3 text-lg text-slate-600">
-                {subtitle}
-            </p>
+    <header className="border-b">
+        <div className="flex items-center gap-2 h-16">
+          <Link href="/" className="flex items-center">
+            <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600">
+              Learn2Code
+            </span>
+          </Link>
         </div>
-    </div>
+    </header>
   )
 }
