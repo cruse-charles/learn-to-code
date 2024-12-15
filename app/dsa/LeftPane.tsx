@@ -22,19 +22,21 @@ function LeftPane({title, description, examples}: LeftPaneProps) {
           <div className='prose max-w-none'>
             <p className="text-slate-700 mb-6">{description}</p>
           </div>
-
           <h3 className="text-lg font-semibold text-slate-800 mb-2">Examples:</h3>
-          <div className='mb-4 bg-slate-50 p-4 rounded-md'>
-            <div className="mb-2">
-              <div>Input: {examples.input[0]}</div>
-            </div>            <div className="mb-2">
-              <div>Output: {examples.output[0]}</div>
+          {examples.input.map((inputExample, index) => (
+            <div className='mb-4 bg-slate-50 p-4 rounded-md'>
+              <div className="mb-2">
+                <div>Input: {examples.input[index]}</div>
+              </div>
+              <div className="mb-2">
+                <div>Output: {examples.output[index]}</div>
+              </div>
+              <div className="mb-2">
+                <div>Explanation: {examples.explanation[index]}</div>
+              </div>
             </div>
-            <div className="mb-2">
-              <div>Explanation: {examples.explanation[0]}</div>
-            </div>
-          </div>
-          <h3 className="text-lg font-semibold text-slate-800 mb-2">Constraints:</h3>
+          ))}
+          {/* <h3 className="text-lg font-semibold text-slate-800 mb-2">Constraints:</h3> */}
         </div>
       </div>
     </div>

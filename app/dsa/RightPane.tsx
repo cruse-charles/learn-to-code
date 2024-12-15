@@ -1,10 +1,14 @@
 import CodeMirror from '@uiw/react-codemirror'
 import { javascript } from '@codemirror/lang-javascript'
 
-function RightPane() {
+interface RightPaneProps {
+  starterCode: string;
+}
+
+function RightPane({starterCode}: RightPaneProps) {
   return (
         <CodeMirror 
-            value='// Write your code here...'
+            value={starterCode}
             extensions={[javascript()]}
             className='cm cm-content'
         />

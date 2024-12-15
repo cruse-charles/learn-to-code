@@ -31,7 +31,7 @@ export default function SplitPaneComponent({question}: SplitPaneComponentProps) 
     <LeftPane title={question.title} description={question.description} examples={question.examples}/>
 
     {/* Left Pane */}
-    <RightPane />
+    <RightPane starterCode={question.starterCode}/>
   </SplitPane>
   )
 }

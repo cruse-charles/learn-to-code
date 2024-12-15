@@ -81,7 +81,3 @@
 .split-pane .Resizer:hover {
   background: #aaa; /* Darker color on hover */
 }
-
-.cm-content {
-  outline: none;
-}
