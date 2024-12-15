@@ -3,9 +3,16 @@ import SubHeader from 'app/components/headers/SubHeader'
 interface LeftPaneProps {
   title: string;
   description: string;
+  examples: {
+    input: string[];
+    output: string[];
+    explanation: string[];
+  };
 }
 
-function LeftPane({title, description}: LeftPaneProps) {
+function LeftPane({title, description, examples}: LeftPaneProps) {
+  console.log('examples', examples)
+
   return (
     <div className='min-h-screen bg-gradient-to-b from-slate-100 to-violet-100 py-8 px-4 sm:px-4 lg:px-8'>
       <div className='max-w-6xl mx-auto'>
@@ -19,13 +26,12 @@ function LeftPane({title, description}: LeftPaneProps) {
           <h3 className="text-lg font-semibold text-slate-800 mb-2">Examples:</h3>
           <div className='mb-4 bg-slate-50 p-4 rounded-md'>
             <div className="mb-2">
-              <div>Input:</div>
+              <div>Input: {examples.input[0]}</div>
+            </div>            <div className="mb-2">
+              <div>Output: {examples.output[0]}</div>
             </div>
             <div className="mb-2">
-              <div>Output:</div>
-            </div>
-            <div className="mb-2">
-              <div>Explanation:</div>
+              <div>Explanation: {examples.explanation[0]}</div>
             </div>
           </div>
           <h3 className="text-lg font-semibold text-slate-800 mb-2">Constraints:</h3>

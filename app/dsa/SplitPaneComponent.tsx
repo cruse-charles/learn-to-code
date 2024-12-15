@@ -28,7 +28,7 @@ export default function SplitPaneComponent({question}: SplitPaneComponentProps) 
     className="split-pane"
   >
     {/* Right Pane */}
-    <LeftPane title={question.title} description={question.description}/>
+    <LeftPane title={question.title} description={question.description} examples={question.examples}/>
 
     {/* Left Pane */}
     <RightPane />
