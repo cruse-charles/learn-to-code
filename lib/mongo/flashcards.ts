@@ -4,7 +4,7 @@ export async function getFlashcards() {
   const client = new MongoClient(process.env.MONGODB_URI as string);
 
   try {
-    // Connect the client to the server	(optional starting in v4.7)
+    // Connect the client to the server
     await client.connect();
     
     // Fetch documents from the 'learn_2_code' database, 'flashcards' collection and convert them to an array
