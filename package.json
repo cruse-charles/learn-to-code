@@ -14,14 +14,17 @@
     "react-dom": "$react-dom"
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.3",
     "@monaco-editor/react": "^4.6.0",
+    "@uiw/codemirror-theme-vscode": "^4.23.11",
+    "@uiw/react-codemirror": "^4.23.11",
+    "codemirror": "^6.0.1",
     "mongodb": "^6.15.0",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-split": "^2.0.14",
-    "react-split-pane": "^0.1.92",
-    "split.js": "^1.6.5"
+    "react-split-pane": "^0.1.92"
   },
   "devDependencies": {
     "@types/node": "^20",
