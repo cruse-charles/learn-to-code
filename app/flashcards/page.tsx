@@ -1,11 +1,5 @@
-// 'use client'
-
-import FlashCard from '../components/flashcards/FlashCard'
 import SubHeader from 'app/components/headers/SubHeader';
-import Filter from 'app/components/flashcards/Filter';
 import FlashcardFilterComponent from './FlashcardFilterComponent'
-
-import { useState, useEffect } from 'react'
 
 interface Flashcard {
   _id: string;

@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import FlashCard from '../components/flashcards/FlashCard'
-import Filter from 'app/components/flashcards/Filter';
+import FlashCard from './FlashCard'
+import Filter from 'app/flashcards/Filter';
 
 interface Flashcard {
     _id: string;

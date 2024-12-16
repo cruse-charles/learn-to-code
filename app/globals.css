@@ -61,3 +61,23 @@
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
   }
+
+/* Add this to your global CSS file */
+.split-pane {
+  height: 100vh; /* Ensure the split layout takes up the full viewport height */
+}
+
+.split-pane .Pane {
+  overflow: auto; /* Ensure content inside panes is scrollable */
+}
+
+.split-pane .Resizer {
+  background: #ccc; /* Color of the resizer (divider) */
+  width: 10px; /* Width of the resizer for vertical split */
+  cursor: col-resize; /* Cursor style for resizing */
+  transition: background 0.2s ease;
+}
+
+.split-pane .Resizer:hover {
+  background: #aaa; /* Darker color on hover */
+}
