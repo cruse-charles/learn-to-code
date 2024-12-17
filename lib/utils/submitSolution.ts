@@ -1,4 +1,4 @@
-const submitSolution(fn, testCases) {
+export function submitSolution(fn, testCases) {
     const results = [];
 
     for (const testCase of testCases) {

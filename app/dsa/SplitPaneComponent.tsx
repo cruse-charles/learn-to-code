@@ -12,6 +12,7 @@ interface Question {
     constraints: string;
     order: any;
     starterCode: string;
+    testCases: object[];
 }
 
 interface SplitPaneComponentProps {
@@ -31,7 +32,7 @@ export default function SplitPaneComponent({question}: SplitPaneComponentProps) 
     <LeftPane title={question.title} description={question.description} examples={question.examples}/>
 
     {/* Left Pane */}
-    <RightPane starterCode={question.starterCode}/>
+    <RightPane starterCode={question.starterCode} testCases={question.testCases}/>
   </SplitPane>
   )
 }
