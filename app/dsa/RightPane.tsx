@@ -8,15 +8,17 @@ import { submitSolution } from '@/libutils/submitSolution';
 
 interface RightPaneProps {
   starterCode: string;
-  testCases: object[];
+  testCases: {
+    input: any;
+    expected: any;
+  }[];
 }
 
 function RightPane({starterCode, testCases}: RightPaneProps) {
   const [userCode, setUserCode] = useState(starterCode)
   
-  const handleChange = (inputCode) => {
+  const handleChange = (inputCode: string) => {
     setUserCode(inputCode)
-    console.log(userCode)
   }
 
   const handleSubmit = () => {

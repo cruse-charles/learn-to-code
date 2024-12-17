@@ -8,11 +8,18 @@ interface Question {
     id: string;
     title: string;
     description: string;
-    descriptionExamples: object[];
+    descriptionExamples: {
+        input: string[];
+        output: string[];
+        explanation: string[];
+    };
     constraints: string;
     order: any;
     starterCode: string;
-    testCases: object[];
+    testCases: {
+      input: any;
+      expected: any;
+    }[];
 }
 
 interface SplitPaneComponentProps {
