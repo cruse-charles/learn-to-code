@@ -1,14 +1,14 @@
 interface LeftPaneProps {
   title: string;
   description: string;
-  examples: {
+  descriptionExamples: {
     input: string[];
     output: string[];
     explanation: string[];
   };
 }
 
-function LeftPane({title, description, examples}: LeftPaneProps) {
+function LeftPane({title, description, descriptionExamples}: LeftPaneProps) {
 
   return (
     // background gradient and padding
@@ -31,16 +31,16 @@ function LeftPane({title, description, examples}: LeftPaneProps) {
           
           {/* Examples section, iterate through example information */}
           <h3 className="text-lg font-semibold text-slate-800 mb-2">Examples:</h3>
-          {examples.input.map((_, index) => (
+          {descriptionExamples.input.map((_, index) => (
             <div className='mb-4 bg-slate-50 p-4 rounded-md'>
               <div className="mb-2">
-                <div>Input: {examples.input[index]}</div>
+                <div>Input: {descriptionExamples.input[index]}</div>
               </div>
               <div className="mb-2">
-                <div>Output: {examples.output[index]}</div>
+                <div>Output: {descriptionExamples.output[index]}</div>
               </div>
               <div className="mb-2">
-                <div>Explanation: {examples.explanation[index]}</div>
+                <div>Explanation: {descriptionExamples.explanation[index]}</div>
               </div>
             </div>
           ))}
