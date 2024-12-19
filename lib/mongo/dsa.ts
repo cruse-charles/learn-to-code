@@ -20,3 +20,25 @@ export async function getQuestion(title: string) {
         await client.close();
     }
 }
+
+export async function getAllQuestions() {
+    const client = new MongoClient(process.env.MONGODB_URI as string);
+
+    try {
+        // Connect the client to the server
+        await client.connect();
+
+
+        // Fetch all documents from the 'learn_2_code' database, 'dsa' collection
+        const database = client.db('learn_2_code');
+        const documents = await database.collection('dsa_problems').find().toArray()
+
+        return documents;
+    } catch (error) {
+        console.error('Error retrieving questions from database:', error);
+        throw new Error('Failed to fetch questions from database');
+    }finally {
+        // Ensures that the client will close when you finish/error
+        await client.close();
+    }
+}
