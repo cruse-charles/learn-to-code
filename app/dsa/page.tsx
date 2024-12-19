@@ -1,5 +1,26 @@
 import Link from 'next/link';
 
+interface Question {
+  _id: string;
+  title: string;
+  description: string;
+  descriptionExamples: {
+      input: string[];
+      output: string[];
+      explanation: string[];
+  };
+  constraints: string;
+  order: any;
+  starterCode: string;
+  testCases: {
+    input: any;
+    expected: any;
+  }[];
+  shortDescription: string;
+  difficulty: string;
+  tags: string[];
+}
+
 export default async function page() {
 
   // fetch all questions from the database
@@ -38,21 +59,36 @@ export default async function page() {
 
           {/* List of questions */}
           <div className='divide-y divide-gray-100'>
-            {questions.map((question) => (
+            {questions.map((question: Question) => (
               // Question Container
-              <Link href={`/dsa/${question.title}`} className='block py-4 px-2 hover:bg-violet-50 rounded-md transition-colors'>
+              <Link key={question._id} href={`/dsa/${question.title}`} className='block py-4 px-2 hover:bg-violet-50 rounded-md transition-colors'>
                 
                 {/* Question title and description */}
-                <h3 className="font-medium text-lg text-slate-800">
-                  {question.title}
-                </h3>
-                <p className="text-slate-600 text-sm">Short description</p>
+                <div className="flex justify-between gap-4 flex-wrap md:flex-nowrap">
+  
+                  {/* Left side: Title and Description */}
+                  <div className="flex-1 min-w-[200px]">
+                    <h3 className="font-medium text-lg text-slate-800">
+                      {question.title}
+                    </h3>
+                    <p className="text-slate-600 text-sm">{question.shortDescription}</p>
+                  </div>
 
-                {/* Problem tags */}
-                <div className='flex flex-wrap gap-2 sm:justify-end'>
-                  <span className='bg-violet-100 text-violet-600 px-2 py-1 rounded-md text-sm'>Easy</span>
-                  <span className='bg-violet-100 text-violet-600 px-2 py-1 rounded-md text-sm'>linked list</span>
-                  <span className='bg-violet-100 text-violet-600 px-2 py-1 rounded-md text-sm'>array</span>
+                  {/* Right side: Tags (vertically centered) */}
+                  <div className="flex flex-wrap gap-2 items-center justify-center self-center">
+                    <div className={`rounded-xl px-2 py-1 font-semibold border text-xs
+                      ${question.difficulty === "Easy" ? "bg-green-50 text-green-700 border-green-200" : ""}
+                      ${question.difficulty === "Medium" ? "bg-yellow-50 text-yellow-700 border-yellow-200" : ""}
+                      ${question.difficulty === "Hard" ? "bg-red-50 text-red-700 border-red-200" : ""}
+                    `}>
+                      {question.difficulty}
+                    </div>
+                    {question.tags.map((tag) => (
+                      <span key={tag} className='bg-violet-100 text-violet-600 px-2 py-1 rounded-xl text-xs border border-violet-200'>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </Link>
             ))}

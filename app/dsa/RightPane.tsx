@@ -29,7 +29,7 @@ function RightPane({starterCode, testCases}: RightPaneProps) {
 
     // Call the function with test cases
     const solutionArray = submitSolution(userFunction, testCases)
-
+    console.log(solutionArray)
     // TODO: Display the results
   }
 
