@@ -15,16 +15,22 @@ interface RightPaneProps {
 }
 
 function RightPane({starterCode, testCases}: RightPaneProps) {
+  // track user's code in the editor
   const [userCode, setUserCode] = useState(starterCode)
   
   const handleChange = (inputCode: string) => {
     setUserCode(inputCode)
   }
 
+  // Handle the "Run Code" button
   const handleSubmit = () => {
+    // Create a new function from the user's code
     const userFunction = new Function(`return ${userCode}`)()
+
+    // Call the function with test cases
     const solutionArray = submitSolution(userFunction, testCases)
-    console.log(solutionArray)
+
+    // TODO: Display the results
   }
 
   return (
