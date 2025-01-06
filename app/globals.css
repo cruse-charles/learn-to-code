@@ -63,25 +63,50 @@
   }
 
 /* Add this to your global CSS file */
-.split-pane {
+.split-pane-vertical {
   height: 100vh; /* Ensure the split layout takes up the full viewport height */
 }
 
-.split-pane .Pane {
+.split-pane-vertical .Pane {
   overflow: auto; /* Ensure content inside panes is scrollable */
 }
 
-.split-pane .Resizer {
+.split-pane-vertical .Resizer {
   background: #ccc; /* Color of the resizer (divider) */
   width: 10px; /* Width of the resizer for vertical split */
   cursor: col-resize; /* Cursor style for resizing */
   transition: background 0.2s ease;
 }
 
-.split-pane .Resizer:hover {
+.split-pane-horizontal .Resizer:hover {
+  background: #aaa; /* Darker color on hover */
+}
+
+/* Add this to your global CSS file */
+.split-pane-horizontal {
+  width: 100%; /* Ensure the split layout takes up the full viewport width */
+}
+
+.split-pane-horizontal .Pane {
+  overflow: auto; /* Ensure content inside panes is scrollable */
+}
+
+.split-pane-horizontal .Resizer {
+  background: #ccc; /* Color of the resizer (divider) */
+  height: 10px; /* Width of the resizer for horizontal split */
+  cursor: col-resize; /* Cursor style for resizing */
+  transition: background 0.2s ease;
+  width: 100%; /* Ensure the resizer takes the full height of the pane */
+}
+
+.split-pane-horizontal .Resizer:hover {
   background: #aaa; /* Darker color on hover */
 }
 
 .cm-focused {
   outline: none !important;
+}
+
+.cm {
+  width: 100%;
 }

@@ -32,8 +32,8 @@ export default function SplitPaneComponent({question}: SplitPaneComponentProps) 
     <SplitPane
     split="vertical"
     minSize={200}
-    defaultSize="50%"
-    className="split-pane"
+    defaultSize="45%"
+    className="split-pane-vertical"
   >
     {/* Right Pane */}
     <LeftPane title={question.title} description={question.description} descriptionExamples={question.descriptionExamples}/>

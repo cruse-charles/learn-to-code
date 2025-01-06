@@ -19,6 +19,7 @@ interface Question {
   shortDescription: string;
   difficulty: string;
   tags: string[];
+  descriptionTitle: string;
 }
 
 export default async function page() {
@@ -69,7 +70,7 @@ export default async function page() {
                   {/* Left side: Title and Description */}
                   <div className="flex-1 min-w-[200px]">
                     <h3 className="font-medium text-lg text-slate-800">
-                      {question.title}
+                      {question.descriptionTitle}
                     </h3>
                     <p className="text-slate-600 text-sm">{question.shortDescription}</p>
                   </div>
