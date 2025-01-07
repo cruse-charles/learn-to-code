@@ -34,7 +34,6 @@ function LeftPane({descriptionTitle, description, descriptionExamples}: LeftPane
           </div>
           
           {/* Examples section, iterate through example information */}
-          {/* TODO: Change structure of descriptionExamples to an array for proper mapping */}
           <h3 className="text-lg font-semibold text-slate-800 mb-2">Examples:</h3>
           {descriptionExamples.map((example, index) => (
             <div className='mb-4 bg-slate-50 p-4 rounded-md'>

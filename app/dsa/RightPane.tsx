@@ -25,6 +25,7 @@ interface RightPaneProps {
 function RightPane({starterCode, testCases, descriptionExamples}: RightPaneProps) {
   // track user's code in the editor
   const [userCode, setUserCode] = useState(starterCode)
+  const [selectedTestCase, setSelectedTestCase] = useState(0)
   
   const handleChange = (inputCode: string) => {
     setUserCode(inputCode)
@@ -39,6 +40,10 @@ function RightPane({starterCode, testCases, descriptionExamples}: RightPaneProps
     const solutionArray = submitSolution(userFunction, testCases)
     console.log(solutionArray)
     // TODO: Display the results
+  }
+
+  const handleExampleClick = (index) => {
+    setSelectedTestCase(index)
   }
 
   return (
@@ -64,15 +69,16 @@ function RightPane({starterCode, testCases, descriptionExamples}: RightPaneProps
       <div className="bg-slate-100 px-4 py-2 border-b border-slate-200">
           <h3 className="font-medium">Test Results</h3>
       </div>
-
-      {/* TODO: Change structure of descriptionExamples to an array for proper mapping */}
-      <div>
-        {descriptionExamples.map((example, index) => (
+      <div className='flex items-center'>
+        {descriptionExamples.map((_, index) => (
           <div>
-            <div>Test Case {index + 1}: {example.input}</div>
-            <div>Expected Result: {example.output}</div>
+            <div onClick={()=>handleExampleClick(index)}>Test Case {index + 1}</div>
           </div>
         ))}
+      </div>
+      <div>
+        <div>Input: {descriptionExamples[selectedTestCase]?.input}</div>
+        <div>Output: {descriptionExamples[selectedTestCase]?.output}</div>
       </div>
     </div>
 
