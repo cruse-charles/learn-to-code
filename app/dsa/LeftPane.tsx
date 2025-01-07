@@ -1,14 +1,18 @@
+interface Example {
+  input: string;
+  output: string;
+  explanation: string;
+};
+
 interface LeftPaneProps {
-  title: string;
   description: string;
-  descriptionExamples: {
-    input: string[];
-    output: string[];
-    explanation: string[];
-  };
+  descriptionExamples: Example[];
+  difficulty: string;
+  tags: string[];
+  descriptionTitle: string;
 }
 
-function LeftPane({title, description, descriptionExamples}: LeftPaneProps) {
+function LeftPane({descriptionTitle, description, descriptionExamples}: LeftPaneProps) {
 
   return (
     // background gradient and padding
@@ -21,7 +25,7 @@ function LeftPane({title, description, descriptionExamples}: LeftPaneProps) {
         <div className='bg-white rounded-lg shadow-md p-6 border border-violet-100 mb-6'>
           
           {/* Title and Placeholder for tabs */}
-          <h1 className="text-2xl font-bold text-slate-800">{title}</h1>
+          <h1 className="text-2xl font-bold text-slate-800">{descriptionTitle}</h1>
           <div className='mb-6'>Description/Solution tabs</div>
           
           {/* Description of problem */}
@@ -30,17 +34,18 @@ function LeftPane({title, description, descriptionExamples}: LeftPaneProps) {
           </div>
           
           {/* Examples section, iterate through example information */}
+          {/* TODO: Change structure of descriptionExamples to an array for proper mapping */}
           <h3 className="text-lg font-semibold text-slate-800 mb-2">Examples:</h3>
-          {descriptionExamples.input.map((_, index) => (
+          {descriptionExamples.map((example, index) => (
             <div className='mb-4 bg-slate-50 p-4 rounded-md'>
               <div className="mb-2">
-                <div>Input: {descriptionExamples.input[index]}</div>
+                <div>Input: {example.input}</div>
               </div>
               <div className="mb-2">
-                <div>Output: {descriptionExamples.output[index]}</div>
+                <div>Output: {example.output}</div>
               </div>
               <div className="mb-2">
-                <div>Explanation: {descriptionExamples.explanation[index]}</div>
+                <div>Explanation: {example.explanation}</div>
               </div>
             </div>
           ))}
