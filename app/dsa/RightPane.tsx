@@ -22,11 +22,18 @@ interface RightPaneProps {
   }[];
 }
 
+interface TestResult {
+  input: any;
+  expected: any;
+  result: any;
+  isCorrect: boolean;
+}
+
 function RightPane({starterCode, testCases, descriptionExamples}: RightPaneProps) {
-  // track user's code in the editor
+  // track user's code in the editor and which test case is selected
   const [userCode, setUserCode] = useState(starterCode)
   const [selectedTestCase, setSelectedTestCase] = useState(0)
-  const [solutionArray, setSolutionArray] = useState([])
+  const [solutionArray, setSolutionArray] = useState<TestResult[]>([])
   
   const handleChange = (inputCode: string) => {
     setUserCode(inputCode)
@@ -38,15 +45,11 @@ function RightPane({starterCode, testCases, descriptionExamples}: RightPaneProps
     const userFunction = new Function(`return ${userCode}`)()
 
     // Call the function with test cases
-    // const solutionArray = submitSolution(userFunction, testCases)
     setSolutionArray(submitSolution(userFunction, testCases))
-    console.log(solutionArray)
-    // TODO: Display the results
   }
 
-  const handleExampleClick = (index) => {
+  const handleExampleClick = (index: number) => {
     setSelectedTestCase(index)
-    console.log(index)
   }
 
   // TODO: If there is an error from the user's code, display it in the output section
@@ -59,6 +62,7 @@ function RightPane({starterCode, testCases, descriptionExamples}: RightPaneProps
     minSize={200}
     defaultSize="55%"
   >
+    {/* Code Editor and Run Button Container */}
     <div className='w-full'>
       <CodeMirror 
           value={starterCode}
@@ -66,14 +70,19 @@ function RightPane({starterCode, testCases, descriptionExamples}: RightPaneProps
           className='cm cm-content'
           onChange={handleChange}
       />
-        <div>
-          <button onClick={handleSubmit} className='bg-violet-500 text-white px-4 py-2 rounded-md mt-4'>Run Code</button>
-        </div>
+      <div>
+        <button onClick={handleSubmit} className='bg-violet-500 text-white px-4 py-2 rounded-md mt-4'>Run Code</button>
+      </div>
     </div>
+    {/* Test Results Container*/}
     <div className="bg-white rounded-lg overflow-hidden">
+
+      {/* Header */}
       <div className="bg-slate-100 px-4 py-2 border-slate-200">
           <h3 className="font-medium">Test Results</h3>
       </div>
+
+      {/* Test Case Tabs */}
       <div className="flex p-4 h-[calc(100%-56px)] overflow-auto">
         {descriptionExamples.map((_, index) => (
           <div
@@ -97,6 +106,8 @@ function RightPane({starterCode, testCases, descriptionExamples}: RightPaneProps
           </div>
         ))}
       </div>
+
+      {/* Selected Test Case Details */}
       <div className="mb-3">
         <span className="font-medium w-full m-4">Test Case {selectedTestCase + 1}</span>
         <div className={`m-4 p-4 rounded-md border ${
