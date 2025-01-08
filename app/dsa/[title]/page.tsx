@@ -1,4 +1,4 @@
-import SplitPaneComponent from "../SplitPaneComponent"
+import SplitPaneComponent from "./SplitPaneComponent"
 
 export default async function page({params}: {params: {title: string}}) {
 

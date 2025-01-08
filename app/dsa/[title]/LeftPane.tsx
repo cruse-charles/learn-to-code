@@ -1,4 +1,4 @@
-import { Question } from '../../lib/types/types';
+import { Question } from '../../../lib/types/types';
 
 interface LeftPaneProps {
   question: Question;

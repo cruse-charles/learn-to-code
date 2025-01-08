@@ -4,7 +4,7 @@ import SplitPane from 'react-split-pane';
 import RightPane from './RightPane';
 import LeftPane from './LeftPane';
 
-import { Question } from '../../lib/types/types';
+import { Question } from '../../../lib/types/types';
 
 interface SplitPaneComponentProps {
     question: Question;
