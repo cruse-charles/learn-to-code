@@ -46,7 +46,10 @@ function RightPane({starterCode, testCases, descriptionExamples}: RightPaneProps
 
   const handleExampleClick = (index) => {
     setSelectedTestCase(index)
+    console.log(index)
   }
+
+  // TODO: If there is an error from the user's code, display it in the output section
 
   return (
     // @ts-ignore
@@ -82,17 +85,26 @@ function RightPane({starterCode, testCases, descriptionExamples}: RightPaneProps
               flex-1
             `}
           >
+            {/* Status dot */}
+            {solutionArray[index] && (
+              <span
+                className={`inline-block w-2 h-2 rounded-full mr-1
+                  ${solutionArray[index]?.isCorrect ? 'bg-green-500' : 'bg-red-500'}
+                `}
+              />
+            )}
             Test Case {index + 1}
           </div>
         ))}
       </div>
-      <div className="flex items-center justify-between mb-3">
-        <span className="font-medium">Test Case {selectedTestCase + 1}</span>
-        <div className={`p-4 rounded-md border ${
+      <div className="mb-3">
+        <span className="font-medium w-full m-4">Test Case {selectedTestCase + 1}</span>
+        <div className={`m-4 p-4 rounded-md border ${
                         solutionArray[selectedTestCase]?.isCorrect ? "border-green-200 bg-green-50" : "border-red-200 bg-red-50"
                       }`}>
           <div>Input: {descriptionExamples[selectedTestCase]?.input}</div>
-          <div>Output: {descriptionExamples[selectedTestCase]?.output}</div>
+          <div>Expected: {descriptionExamples[selectedTestCase]?.output}</div>
+          <div>Output: {JSON.stringify(solutionArray[selectedTestCase]?.result)}</div>
         </div>
       </div>
     </div>
