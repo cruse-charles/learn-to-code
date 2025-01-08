@@ -1,26 +1,5 @@
 import Link from 'next/link';
-
-interface Question {
-  _id: string;
-  title: string;
-  description: string;
-  descriptionExamples: {
-      input: string[];
-      output: string[];
-      explanation: string[];
-  };
-  constraints: string;
-  order: any;
-  starterCode: string;
-  testCases: {
-    input: any;
-    expected: any;
-  }[];
-  shortDescription: string;
-  difficulty: string;
-  tags: string[];
-  descriptionTitle: string;
-}
+import { Question } from '../../lib/types/types';
 
 export default async function page() {
 

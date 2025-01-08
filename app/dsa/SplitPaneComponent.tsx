@@ -4,27 +4,7 @@ import SplitPane from 'react-split-pane';
 import RightPane from './RightPane';
 import LeftPane from './LeftPane';
 
-interface Example {
-  input: string;
-  output: string;
-  explanation: string;
-};
-
-interface Question {
-    id: string;
-    description: string;
-    descriptionExamples: Example[];
-    constraints: string;
-    order: any;
-    starterCode: string;
-    testCases: {
-      input: any;
-      expected: any;
-    }[];
-    difficulty: string;
-    tags: string[];
-    descriptionTitle: string;
-}
+import { Question } from '../../lib/types/types';
 
 interface SplitPaneComponentProps {
     question: Question;
@@ -40,10 +20,10 @@ export default function SplitPaneComponent({question}: SplitPaneComponentProps) 
     className="split-pane-vertical"
   >
     {/* Right Pane */}
-    <LeftPane tags={question.tags} difficulty={question.difficulty} descriptionTitle={question.descriptionTitle} description={question.description} descriptionExamples={question.descriptionExamples}/>
+    <LeftPane question={question}/>
 
     {/* Left Pane */}
-    <RightPane starterCode={question.starterCode} testCases={question.testCases} descriptionExamples={question.descriptionExamples}/>
+    <RightPane question={question}/>
   </SplitPane>
   )
 }

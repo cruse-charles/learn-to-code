@@ -4,22 +4,13 @@ import {useState} from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 
-import { submitSolution } from '@/libutils/submitSolution';
+import { submitSolution } from '@/lib/utils/submitSolution';
 import SplitPane from 'react-split-pane';
 
-interface Example {
-  input: string;
-  output: string;
-  explanation: string;
-};
+import { Question } from '../../lib/types/types';
 
 interface RightPaneProps {
-  starterCode: string;
-  descriptionExamples: Example[];
-  testCases: {
-    input: any;
-    expected: any;
-  }[];
+  question: Question;
 }
 
 interface TestResult {
@@ -29,7 +20,10 @@ interface TestResult {
   isCorrect: boolean;
 }
 
-function RightPane({starterCode, testCases, descriptionExamples}: RightPaneProps) {
+function RightPane({question}: RightPaneProps) {
+  // Destructure question object to get relevant properties
+  const { starterCode, descriptionExamples, testCases } = question;
+
   // track user's code in the editor and which test case is selected
   const [userCode, setUserCode] = useState(starterCode)
   const [selectedTestCase, setSelectedTestCase] = useState(0)

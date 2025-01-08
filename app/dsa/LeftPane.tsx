@@ -1,18 +1,12 @@
-interface Example {
-  input: string;
-  output: string;
-  explanation: string;
-};
+import { Question } from '../../lib/types/types';
 
 interface LeftPaneProps {
-  description: string;
-  descriptionExamples: Example[];
-  difficulty: string;
-  tags: string[];
-  descriptionTitle: string;
+  question: Question;
 }
 
-function LeftPane({descriptionTitle, description, descriptionExamples}: LeftPaneProps) {
+function LeftPane({question}: LeftPaneProps) {
+  // Destructure question object to get relevant properties
+  const { descriptionTitle, description, descriptionExamples } = question; 
 
   return (
     // background gradient and padding
