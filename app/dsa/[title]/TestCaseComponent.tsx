@@ -1,10 +1,19 @@
+'use client';
 import {useState} from 'react';
 
-function TestCaseComponent({question, solutionArray}: any) {
-    const { descriptionExamples } = question;
+import { Example, Question, TestResult } from '../../../lib/types/types';
 
+interface TestCaseComponentProps {
+    question: Question;
+    testResults: TestResult[];
+}
+
+function TestCaseComponent({question, testResults}: TestCaseComponentProps) {
+    // Destructure question object to get relevant properties and state for test cases
+    const { descriptionExamples } = question;
     const [selectedTestCase, setSelectedTestCase] = useState(0)
 
+    // Click on a test case tab, updating the rednered test case
     const handleExampleClick = (index: number) => {
         setSelectedTestCase(index)
     }
@@ -20,7 +29,7 @@ function TestCaseComponent({question, solutionArray}: any) {
 
       {/* Test Case Tabs */}
       <div className="flex p-4 h-[calc(100%-56px)] overflow-auto">
-        {descriptionExamples.map((_, index) => (
+        {descriptionExamples.map((_: Example, index: number) => (
           <div
             key={index}
             onClick={() => handleExampleClick(index)}
@@ -31,10 +40,10 @@ function TestCaseComponent({question, solutionArray}: any) {
             `}
           >
             {/* Status dot */}
-            {solutionArray[index] && (
+            {testResults[index] && (
               <span
                 className={`inline-block w-2 h-2 rounded-full mr-1
-                  ${solutionArray[index]?.isCorrect ? 'bg-green-500' : 'bg-red-500'}
+                  ${testResults[index]?.isCorrect ? 'bg-green-500' : 'bg-red-500'}
                 `}
               />
             )}
@@ -47,11 +56,11 @@ function TestCaseComponent({question, solutionArray}: any) {
       <div className="mb-3">
         <span className="font-medium w-full m-4">Test Case {selectedTestCase + 1}</span>
         <div className={`m-4 p-4 rounded-md border ${
-                        solutionArray[selectedTestCase]?.isCorrect ? "border-green-200 bg-green-50" : "border-red-200 bg-red-50"
+                        testResults[selectedTestCase]?.isCorrect ? "border-green-200 bg-green-50" : "border-red-200 bg-red-50"
                       }`}>
           <div>Input: {descriptionExamples[selectedTestCase]?.input}</div>
           <div>Expected: {descriptionExamples[selectedTestCase]?.output}</div>
-          <div>Output: {JSON.stringify(solutionArray[selectedTestCase]?.result)}</div>
+          <div>Output: {JSON.stringify(testResults[selectedTestCase]?.result)}</div>
         </div>
       </div>
     </div>

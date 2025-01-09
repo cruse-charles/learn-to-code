@@ -7,18 +7,11 @@ import { javascript } from '@codemirror/lang-javascript';
 import { submitSolution } from '@/lib/utils/submitSolution';
 import SplitPane from 'react-split-pane';
 
-import { Question } from '../../../lib/types/types';
+import { Question, TestResult } from '../../../lib/types/types';
 import TestCaseComponent from './TestCaseComponent';
 
 interface RightPaneProps {
   question: Question;
-}
-
-interface TestResult {
-  input: any;
-  expected: any;
-  result: any;
-  isCorrect: boolean;
 }
 
 function RightPane({question}: RightPaneProps) {
@@ -27,7 +20,7 @@ function RightPane({question}: RightPaneProps) {
 
   // track user's code in the editor and the test results
   const [userCode, setUserCode] = useState(starterCode)
-  const [solutionArray, setSolutionArray] = useState<TestResult[]>([])
+  const [testResults, setTestResults] = useState<TestResult[]>([])
   
   const handleChange = (inputCode: string) => {
     setUserCode(inputCode)
@@ -39,7 +32,7 @@ function RightPane({question}: RightPaneProps) {
     const userFunction = new Function(`return ${userCode}`)()
 
     // Call the function with test cases
-    setSolutionArray(submitSolution(userFunction, testCases))
+    setTestResults(submitSolution(userFunction, testCases))
   }
 
   // TODO: If there is an error from the user's code, display it in the output section
@@ -66,7 +59,7 @@ function RightPane({question}: RightPaneProps) {
     </div>
 
     {/* Test Cases and Details */}
-    <TestCaseComponent question={question} solutionArray={solutionArray}/>
+    <TestCaseComponent question={question} testResults={testResults}/>
   </SplitPane>
   )
 }

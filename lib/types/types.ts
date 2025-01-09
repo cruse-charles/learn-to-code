@@ -21,3 +21,10 @@ export interface Example {
   output: string;
   explanation: string;
 };
+
+export interface TestResult {
+  input: any;
+  expected: any;
+  result: any;
+  isCorrect: boolean;
+}
