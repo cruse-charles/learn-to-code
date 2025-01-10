@@ -8,9 +8,11 @@ interface TestCaseComponentProps {
     testResults: TestResult[];
 }
 
+// TODO: make sure the test case output here is the test case output and not description example output
+
 function TestCaseComponent({question, testResults}: TestCaseComponentProps) {
     // Destructure question object to get relevant properties and state for test cases
-    const { descriptionExamples } = question;
+    const { descriptionExamples, testCases } = question;
     const [selectedTestCase, setSelectedTestCase] = useState(0)
 
     // Click on a test case tab, updating the rednered test case
@@ -20,7 +22,8 @@ function TestCaseComponent({question, testResults}: TestCaseComponentProps) {
 
   return (
     // Test Case Container
-   <div className="bg-white rounded-lg overflow-hidden">
+    // TODO: Return console logs and errors
+   <div className="bg-white overflow-auto">
 
       {/* Header */}
       <div className="bg-slate-100 px-4 py-2 border-slate-200">
@@ -59,7 +62,7 @@ function TestCaseComponent({question, testResults}: TestCaseComponentProps) {
                         testResults[selectedTestCase]?.isCorrect ? "border-green-200 bg-green-50" : "border-red-200 bg-red-50"
                       }`}>
           <div>Input: {descriptionExamples[selectedTestCase]?.input}</div>
-          <div>Expected: {descriptionExamples[selectedTestCase]?.output}</div>
+          <div>Expected: {JSON.stringify(testCases[selectedTestCase]?.expected)}</div>
           <div>Output: {JSON.stringify(testResults[selectedTestCase]?.result)}</div>
         </div>
       </div>

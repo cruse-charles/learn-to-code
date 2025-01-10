@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className='min-h-screen bg-gradient-to-b from-slate-50 to-violet-50 py-16 px-4 sm:px-6 lg:px-8'>
+    <div className='h-full bg-gradient-to-b from-slate-50 to-violet-50 py-16 px-4 sm:px-6 lg:px-8'>
       {/* Header */}
       <div className='max-w-4xl mx-auto text-center'>
         <h1 className='text-5xl font-extrabold text-violet-600 mb-6'>Welcome to Learn2Code</h1>

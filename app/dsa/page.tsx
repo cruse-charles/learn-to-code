@@ -9,11 +9,12 @@ export default async function page() {
 
   return (
     // Background gradient and padding
-    <div className='min-h-screen bg-gradient-to-b from-slate-50 to-violet-50 py-16 px-4 sm:px-6 lg:px-8'>
+    <div className='bg-gradient-to-b from-slate-50 to-violet-50 py-16 px-4 sm:px-6 lg:px-8'>
       
       {/* Main container */}
       <div className='max-w-4xl mx-auto'>
         
+        {/* TODO: Header title is cut off, fix */}
         {/* Page header section */}
         <div className="mb-12">
           <h1 className='text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600'>

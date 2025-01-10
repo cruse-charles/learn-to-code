@@ -38,29 +38,34 @@ function RightPane({question}: RightPaneProps) {
   // TODO: If there is an error from the user's code, display it in the output section
 
   return (
-    // @ts-ignore
-    <SplitPane
-    split="horizontal"
-    className="split-pane-horizontal"
-    minSize={200}
-    defaultSize="55%"
-  >
+      //@ts-ignore
+      <SplitPane
+      split="horizontal"
+      className="split-pane-horizontal overflow-auto h-full"
+      minSize={200}
+      defaultSize="55%"
+    >
+      
     {/* Code Editor and Run Button Container */}
-    <div className='w-full'>
+    <div className='w-full overflow-auto h-full'>
+            {/* Header */}
+      <div className="bg-slate-100 px-4 py-2 border-slate-200 flex justify-between items-center">
+        <h3 className="font-medium">Code</h3>
+        <button onClick={handleSubmit} className='bg-violet-500 text-white px-3 py-1 rounded-md'>Run</button>
+      </div>
       <CodeMirror 
           value={starterCode}
           extensions={[javascript()]}
           className='cm cm-content'
           onChange={handleChange}
       />
-      <div>
-        <button onClick={handleSubmit} className='bg-violet-500 text-white px-4 py-2 rounded-md mt-4'>Run Code</button>
-      </div>
     </div>
-
+    
     {/* Test Cases and Details */}
-    <TestCaseComponent question={question} testResults={testResults}/>
-  </SplitPane>
+    <div className='overflow-auto h-full'>
+      <TestCaseComponent question={question} testResults={testResults}/>
+    </div>
+    </SplitPane>
   )
 }
 

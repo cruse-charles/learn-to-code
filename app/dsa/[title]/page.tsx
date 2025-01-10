@@ -10,6 +10,10 @@ export default async function page({params}: {params: {title: string}}) {
   const question = await reponse.json()
 
   return (
-    <SplitPaneComponent question={question} />   
+    // <div className="h-full">
+    //   <SplitPaneComponent question={question} />   
+    // </div>
+
+    <SplitPaneComponent question={question} />
   )
 }

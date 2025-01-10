@@ -10,8 +10,8 @@ function LeftPane({question}: LeftPaneProps) {
 
   return (
     // background gradient and padding
-    <div className='min-h-screen bg-gradient-to-b from-slate-100 to-violet-100 py-8 px-4 sm:px-4 lg:px-8'>
-      
+    <div className='bg-gradient-to-b from-slate-100 to-violet-100 py-6 px-4 sm:px-4 lg:px-8'>
+      {/* TODO: Add tabs at the top for description and solution */}
       {/* Card wrapper */}
       <div className='max-w-6xl mx-auto'>
 
@@ -28,8 +28,9 @@ function LeftPane({question}: LeftPaneProps) {
           </div>
           
           {/* Examples section, iterate through example information */}
+          {/* TODO: Count examples, Test Case 1, 2, etc... */}
           <h3 className="text-lg font-semibold text-slate-800 mb-2">Examples:</h3>
-          {descriptionExamples.map((example, index) => (
+          {descriptionExamples.map((example) => (
             <div className='mb-4 bg-slate-50 p-4 rounded-md'>
               <div className="mb-2">
                 <div>Input: {example.input}</div>
