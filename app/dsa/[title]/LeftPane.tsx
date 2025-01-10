@@ -32,15 +32,9 @@ function LeftPane({question}: LeftPaneProps) {
           <h3 className="text-lg font-semibold text-slate-800 mb-2">Examples:</h3>
           {descriptionExamples.map((example) => (
             <div className='mb-4 bg-slate-50 p-4 rounded-md'>
-              <div className="mb-2">
                 <div>Input: {example.input}</div>
-              </div>
-              <div className="mb-2">
                 <div>Output: {example.output}</div>
-              </div>
-              <div className="mb-2">
                 <div>Explanation: {example.explanation}</div>
-              </div>
             </div>
           ))}
           {/* <h3 className="text-lg font-semibold text-slate-800 mb-2">Constraints:</h3> */}
